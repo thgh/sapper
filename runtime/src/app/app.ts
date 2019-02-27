@@ -178,6 +178,7 @@ async function render(redirect: Redirect, branch: any[], props: any, page: Page)
 
 	stores.page.set(page);
 	stores.preloading.set(false);
+	stores.session.set($session);
 
 	if (root_component) {
 		root_component.$set(props);

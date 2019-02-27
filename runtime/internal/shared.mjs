@@ -1,6 +1,7 @@
 import { writable } from 'svelte/store';
 
 export const stores = {
+	session: writable(false),
 	preloading: writable(false),
 	page: writable(null)
 };
