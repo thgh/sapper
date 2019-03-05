@@ -64,6 +64,7 @@
     "svelte": "^3.0.0"
   },
   "scripts": {
+    "p": "yarn build && yarn version --minor --no-git-tag-version && yarn pack -f pack.tgz && git add -A && git commit -m\"temp\"&& git push --set-upstream origin temp",
     "test": "mocha --opts mocha.opts",
     "pretest": "npm run build",
     "build": "rm -rf dist && rollup -c",
