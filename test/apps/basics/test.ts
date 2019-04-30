@@ -183,6 +183,19 @@ describe('basics', function() {
 			'ok'
 		);
 	});
+  
+	it('navigates client-side if server route does not export `get`', async () => {
+		await page.goto(`${base}/ambiguous/post`);
+		await start();
+
+		const loadedAt = await title()
+
+		await page.click('a');
+		await wait(50);
+
+		const navigation = await title() === loadedAt ? 'client-side' : 'server-side';
+		assert.equal(navigation, 'client-side');
+	});
 
 	it('allows reserved words as route names', async () => {
 		await r.load('/const');
