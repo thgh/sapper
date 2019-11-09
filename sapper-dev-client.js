@@ -22,7 +22,10 @@ export function connect(port) {
 	};
 
 	source.onerror = function(error) {
-		console.error(error);
+		// Don't show error when page is being unloaded
+		setTimeout(() => {
+			console.error('[SAPPER] dev client error', (error));
+		})
 	};
 
 	source.onmessage = function(event) {
